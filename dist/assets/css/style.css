@@ -486,6 +486,76 @@ template {
 /* ========================================
   project
 ======================================== */
+.p-bg__wp {
+  width: 100%;
+  background-color: gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+}
+
+.p-bg__rectangle--gray {
+  width: 30%;
+  background-color: gray;
+}
+
+.p-bg__triangle--red {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent red red transparent;
+  border-width: 600px 600px 600px 0px;
+}
+
+.p-bg__rectangle--red {
+  width: 30%;
+  background-color: red;
+}
+
+.p-test__wp {
+  margin-top: 100px;
+}
+
+.balloon {
+  position: relative;
+  background: #fde7d1;
+  padding: 2em;
+}
+
+.balloon:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -20px;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  margin: auto;
+  border-style: solid;
+  border-color: #fde7d1 transparent transparent transparent;
+  border-width: 20px 20px 0px 20px;
+}
+
+.p-kv__wp {
+  width: 1440px;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+
+.p-kv__logo {
+  width: 600px;
+  height: 200px;
+  margin: 0 auto;
+  background: blue;
+}
+
 /* ========================================
   utility
 ======================================== */

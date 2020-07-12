@@ -1,0 +1,60 @@
+meta(charset="UTF-8")
+title #{page.title}
+//- meta(name="viewport" content="width=device-width,user-scalable=yes")
+//- meta(name="format-detection" content="telephone=no")
+
+//- if page.keywords !== ''
+//- 	meta(name="keywords" content=page.keywords)
+
+if page.description !== ''
+	meta(name="description" content=page.description)
+
+if page.og.title !== ''
+	meta(property="og:title" content=page.og.title)
+
+if page.og.description !== ''
+	meta(property="og:description" content=page.og.description)
+
+if page.og.image !== ''
+	meta(property="og:image" content=page.og.image)
+
+if page.og.type !== ''
+	meta(property="og:type" content=page.og.type)
+
+if page.og.locale !== ''
+	meta(property="og:locale" content=page.og.locale)
+
+if page.og.siteName !== ''
+	meta(property="og:site_name" content=page.og.siteName)
+
+if page.og.url !== ''
+	meta(property="og:url" content=page.og.url)
+
+if page.twitter.title !== ''
+	meta(name="twitter:title" content=page.twitter.title)
+
+if page.twitter.description !== ''
+	meta(name="twitter:description" content=page.twitter.description)
+
+if page.twitter.image !== ''
+	meta(name="twitter:image" content=page.twitter.image)
+
+if page.twitter.card !== ''
+	meta(name="twitter:card" content=page.twitter.card)
+
+if page.twitter.site !== ''
+	meta(name="twitter:site" content=page.twitter.site)
+
+if page.twitter.url !== ''
+	meta(name="twitter:url" content=page.twitter.url)
+
+if page.favicon !== ''
+	link(rel="icon" type="image/vnd.microsoft.icon" href=page.favicon)
+
+link(rel="stylesheet" href=ROOT_PATH+"css/style.css")
+
+if page.name == 'home'
+	link(rel="stylesheet" href=ROOT_PATH+"css/home/style.css")
+
+if page.name == 'page'
+	link(rel="stylesheet" href=ROOT_PATH+"css/page/style.css")

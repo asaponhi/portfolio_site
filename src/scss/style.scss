@@ -1,7 +1,20 @@
-// normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
-@import "~normalize.css";
-
-// Place your content here🐶
-.title {
-  text-align: center;
-}
+@import "_foundation/reset";
+/* ========================================
+  layout
+======================================== */
+@import "_layout/*";
+ 
+/* ========================================
+  component
+======================================== */
+@import "_object/component/*";
+ 
+/* ========================================
+  project
+======================================== */
+@import "_object/project/*";
+ 
+/* ========================================
+  utility
+======================================== */
+@import "_object/utility/*";

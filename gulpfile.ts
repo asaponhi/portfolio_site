@@ -3,6 +3,7 @@ const { src, dest, series, watch, lastRun, parallel } = require("gulp");
 const gutil = require("gulp-util");
 const pug = require("gulp-pug");
 const sass = require("gulp-sass");
+const sassGlob = require("gulp-sass-glab")
 const packageImporter = require("node-sass-package-importer");
 const typescript = require("gulp-typescript");
 const rename = require("gulp-rename");
@@ -52,6 +53,7 @@ function pugFiles() {
 // scss
 function styles() {
   return src(PATHS.styles.src)
+    .pipe(sassGlob())
     .pipe(plumber({ errorHandler: errorHandler }))
     .pipe(
       sass({

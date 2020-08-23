@@ -15,6 +15,12 @@ const prettify = require("gulp-prettify");
 const htmlhint = require("gulp-htmlhint");
 const PUBLIC_PATH = "dist/assets";
 
+//画像圧縮
+const imagemin = require("gulp-imagemin");
+const imageminMozjpeg = require("imagemin-mozjpeg");
+const imageminPngquant = require("imagemin-pngquant");
+const imageminSvgo = require("imagemin-svgo");
+
 const PATHS = {
   pug: {
     src: "./src/pug/**/!(_)*.pug",
@@ -27,7 +33,11 @@ const PATHS = {
   scripts: {
     src: "./src/typescript/**/*.ts",
     dest: "./dist/assets/js"
-  }
+  },
+  // img: {
+  //   src: "./src/img/**/*",
+  //   dest: "./dist/assets/img"
+  // }
 };
 
 // methods
@@ -91,6 +101,32 @@ function ts() {
     .js.pipe(dest(PATHS.scripts.dest));
 }
 
+//画像圧縮（デフォルトの設定）
+// function imgImagemin () {
+//   return src(PATHS.img.src)
+//     .pipe(
+//       imagemin(
+//         [
+//           imageminMozjpeg({
+//             quality: 80
+//           }),
+//           imageminPngquant(),
+//           imageminSvgo({
+//             plugins: [
+//               {
+//                 removeViewbox: false
+//               }
+//             ]
+//           })
+//         ],
+//         {
+//           verbose: true
+//         }
+//       )
+//     )
+//     .pipe(dest(PATHS.img.dest))
+//  }
+
 // server
 const browserSyncOption = {
   open: false,
@@ -120,11 +156,13 @@ function watchFiles(done) {
   watch(PATHS.pug.src, series(pugFiles, browserReload));
   watch(PATHS.styles.src, styles);
   watch(PATHS.scripts.src, ts);
+  // watch(PATHS.img.src, imgImagemin);
   done();
 }
 
 // commands
 exports.default = series(
   parallel(styles, pugFiles, ts),
+  // parallel(styles, pugFiles, ts,imgImagemin),
   series(browsersync, watchFiles)
 );
